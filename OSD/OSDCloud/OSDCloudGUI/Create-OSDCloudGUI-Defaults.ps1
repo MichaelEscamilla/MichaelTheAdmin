@@ -1,3 +1,14 @@
+<# https://MichaeltheAdmin.com
+
+OSDCloudGUI can now be configured with Defaults and Selectable Options in the dropdowns.
+
+Create the file "$($env:SystemDrive)\OSDCloud\Automate\Start-OSDCloudGUI.json"
+and the 'Start-OSDCloudGUI' will import the file
+
+https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults
+
+#>
+
 # Set OSDCloudGUI Defaults
 $Global:OSDCloud_Defaults = @{
     BrandName            = "Michael The Admin"
