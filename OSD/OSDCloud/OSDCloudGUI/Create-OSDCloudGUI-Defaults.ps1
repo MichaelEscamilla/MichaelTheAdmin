@@ -10,7 +10,7 @@ https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults
 #>
 
 # Set OSDCloudGUI Defaults
-$Global:OSDCloud_Defaults = @{
+$Global:OSDCloud_Defaults = [ordered]@{
     BrandName            = "Michael The Admin"
     BrandColor           = "Orange"
     OSActivation         = "Volume"
