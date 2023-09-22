@@ -2,6 +2,10 @@ param (
     [string]$DownloadPath
 )
 
+<#
+    Took these Functions from @gwblock
+    https://garytown.com/osdcloud-configmgr-integrated-win11-osd
+#>
 # Creates a TSProgressUI Variable for the script
 function Confirm-TSProgressUISetup() {
     if ($null -eq $Script:TaskSequenceProgressUi) {
@@ -52,10 +56,6 @@ function Show-TSActionProgress() {
             $Step, `
             $MaxStep)
 }
-
-# Import Module
-Show-TSActionProgress -Message "Importing 'OSD' PSModule" -Step 1 -MaxStep 2
-Import-Module OSD -Force
 
 # Get Update files
 Show-TSActionProgress -Message "Finding Update files in Directory: [$($DownloadPath)]" -Step 1 -MaxStep 2
