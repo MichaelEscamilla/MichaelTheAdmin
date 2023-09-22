@@ -4,6 +4,10 @@ param (
     [string]$DownloadPath
 )
 
+<#
+    Took these Functions from @gwblock
+    https://garytown.com/osdcloud-configmgr-integrated-win11-osd
+#>
 # Creates a TSProgressUI Variable for the script
 function Confirm-TSProgressUISetup() {
     if ($null -eq $Script:TaskSequenceProgressUi) {
