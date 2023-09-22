@@ -65,7 +65,6 @@ Show-TSActionProgress -Message "Successfully Found: [$($UpdateFiles.Count)] Upda
 
 # Install Updates
 Show-TSActionProgress -Message "Installing Updates" -Step 1 -MaxStep $($UpdateFiles.Count + 1)
-Write-Host "Installing Updates - StepsRaw: [$($UpdateFiles.Count)] - Steps: [$($UpdateFiles.Count + 1)]"
 # Set Scratch Directory
 $ScratchDir = "$($DownloadPath)\_Update-Scratch"
 # Create Directory if it doesn't Exists
