@@ -62,7 +62,7 @@ Show-TSActionProgress -Message "Deleting Download Path: [$($DownloadPath)]" -Ste
 Remove-Item -Path "$($DownloadPath)" -Recurse -Force -Verbose
 
 # Verify Download Path is Deleted
-Show-TSActionProgress -Message "Verifying Download Path has been Delted" -Step 2 -MaxStep 3
-if (Test-Path -Path "$($DownloadPath)") {
+Show-TSActionProgress -Message "Verifying Download Path has been Deleted" -Step 2 -MaxStep 3
+if (!(Test-Path -Path "$($DownloadPath)")) {
     Show-TSActionProgress -Message "Successfully Deleted Download Path" -Step 3 -MaxStep 3
 }
