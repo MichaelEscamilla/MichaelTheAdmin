@@ -57,6 +57,8 @@ Install-Module OSD -Force -Verbose
 Write-Host -ForegroundColor DarkGray "Executing OOBEDeploy Script fomr OSDCloud Module"
 Start-OOBEDeploy
 
+whoami
+
 Write-Host -ForegroundColor Green "Pausing...."
 Start-Sleep -Seconds 900
 
@@ -116,7 +118,8 @@ $action.Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPower
 
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
-$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
+#$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
+$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "$($env:COMPUTERNAME)\defaultuser0", $NULL, 5)
 
 
 # Import 'OSD' Module
