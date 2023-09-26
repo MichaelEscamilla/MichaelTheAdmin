@@ -119,7 +119,7 @@ $action.Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPower
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
 #$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
-$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "defaultuser0", $NULL, 1)
+$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "defaultuser0", "", 1)
 
 <# #===============================================
 # Set Task Schedule Name
@@ -130,7 +130,7 @@ $Username = "defaultuser0"
 $Principal = New-ScheduledTaskPrincipal -UserID $Username -LogonType Password -RunLevel Highest
 
 # Create Trigger Time for Task Schedule
-$TriggerTime = New-ScheduledTaskTrigger -Daily -At 8:15am
+$TriggerTime = New-ScheduledTaskTrigger -AtLogOn -RandomDelay 20
 
 # Create Action for Task Schedule
 $Execute = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
