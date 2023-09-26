@@ -8,6 +8,7 @@ Start-Transcript -Path (Join-Path "C:\" $Global:Transcript) -ErrorAction Ignore
 # Create Script Folder
 $scriptFolderPath = "$env:SystemDrive\OSDCloud\Scripts"
 $scriptPathSendKeys = $(Join-Path -Path $scriptFolderPath -ChildPath "SendKeys.ps1")
+$ScriptPathOOBE = $(Join-Path -Path $scriptFolderPath -ChildPath "OOBE.ps1")
 
 $SendKeysScript = @"
 `$Global:Transcript = "`$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-SendKeys.log"
