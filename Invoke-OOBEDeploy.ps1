@@ -27,6 +27,10 @@ Start-Sleep -Seconds 1
 Write-Host -ForegroundColor DarkGray "SendKeys: SHIFT + F10"
 `$WscriptShell.SendKeys("+({F10})")
 
+`$WscriptShell.SendKeys("powershell")
+Start-Sleep -Seconds 5
+`$WscriptShell.SendKeys("Start-OOBEDeploy")
+
 Stop-Transcript -Verbose | Out-File
 "@
 
