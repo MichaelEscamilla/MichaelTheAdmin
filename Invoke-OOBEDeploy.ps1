@@ -36,14 +36,14 @@ $OOBEScript =@"
 `$Global:Transcript = "`$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OOBEScripts.log"
 Start-Transcript -Path (Join-Path "`$env:ProgramData\Microsoft\IntuneManagementExtension\Logs\OSD\" `$Global:Transcript) -ErrorAction Ignore | Out-Null
 
+Write-Host -ForegroundColor DarkGray "Installing OSD PS Module"
+Start-Process PowerShell -ArgumentList "-NoL -C Install-Module OSD -Force -Verbose" -Wait
+
 Write-Host -ForegroundColor DarkGray "Executing OOBEDeploy Script fomr OSDCloud Module"
 Start-Process PowerShell -ArgumentList "-NoL -C Start-OOBEDeploy" -Wait
 
-Wite-Host -ForegroundColor Green "Pauing...."
+Write-Host -ForegroundColor Green "Pausing...."
 Start-Process PowerShell -ArgumentList "-NoL -C Start-Sleep -Seconds 900" -Wait
-
-Write-Host -ForegroundColor DarkGray "Restarting Computer"
-Start-Process PowerShell -ArgumentList "-NoL -C Restart-Computer -Force" -Wait
 
 Stop-Transcript -Verbose | Out-File
 "@
