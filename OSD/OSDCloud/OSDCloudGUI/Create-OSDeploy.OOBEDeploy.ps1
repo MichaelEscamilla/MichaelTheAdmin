@@ -9,7 +9,7 @@ https://akosbakos.ch/osdcloud-4-oobe-customization/
 #>
 
 # Set OSDCloudGUI Defaults
-$Global:AutopilotOOBE = [ordered]@{
+$Global:OOBEDeploy = [ordered]@{
     AddNetFX3  = @{
         IsPresent = $true
     }
@@ -45,7 +45,7 @@ $Global:AutopilotOOBE = [ordered]@{
 }
 
 # Create 'OSDeploy.OOBEDeploy.json' - During WinPE SystemDrive will be 'X:'
-$AutopilotOOBEjson = New-Item -Path "$($env:SystemDrive)\OSDCloud\Config\OOBEDeploy\OSDeploy.OOBEDeploy.json" -Force
+$OOBEDeployjson = New-Item -Path "$($env:SystemDrive)\OSDCloud\Config\OOBEDeploy\OSDeploy.OOBEDeploy.json" -Force
 
 # Covert data to Json and export to the file created above
-$Global:AutopilotOOBE | ConvertTo-Json -Depth 10 | Out-File -FilePath $($AutopilotOOBEjson.FullName) -Force
+$Global:OOBEDeploy | ConvertTo-Json -Depth 10 | Out-File -FilePath $($OOBEDeployjson.FullName) -Force
