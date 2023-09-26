@@ -119,14 +119,14 @@ $action.Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPower
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
 #$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
-$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "defaultuser0", $NULL, 6)
+$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "defaultuser0", $NULL, 1)
 
 <# #===============================================
 # Set Task Schedule Name
 $TaskName = "OSDCloud OOBE"
 
 # Set User Principle to Run Task Schedule
-$Username = "$env:COMPUTERNAME\defaultuser0"
+$Username = "defaultuser0"
 $Principal = New-ScheduledTaskPrincipal -UserID $Username -LogonType Password -RunLevel Highest
 
 # Create Trigger Time for Task Schedule
