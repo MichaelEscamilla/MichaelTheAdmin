@@ -51,9 +51,6 @@ $OOBEScript =@"
 `$Global:Transcript = "`$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OOBEScripts.log"
 Start-Transcript -Path (Join-Path "`$env:ProgramData\Microsoft\IntuneManagementExtension\Logs\OSD\" `$Global:Transcript) -ErrorAction Ignore | Out-Null
 
-Write-Host -ForegroundColor Green "Testinggggggggggggggggggg"
-Start-Process PowerShell -ArgumentList "-NoL -C whoami; Start-Sleep -Seconds 20" -Wait
-
 Write-Host -ForegroundColor DarkGray "Installing OSD PS Module"
 Install-Module OSD -Force -Verbose
 
@@ -117,31 +114,12 @@ $trigger.Enabled = $true
 
 $action = $Task.Actions.Create(0)
 $action.Path = 'C:\OSDCloud\ServiceUI.exe'
-$action.Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe ' + $ScriptPathOOBE + ' -NoExit'
+$action.Arguments = '-process:cmd.exe C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe ' + $ScriptPathOOBE + ' -NoExit'
 
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
 $taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
 
-<# #===============================================
-# Set Task Schedule Name
-$TaskName = "OSDCloud OOBE"
-
-# Set User Principle to Run Task Schedule
-$Username = "defaultuser0"
-$Principal = New-ScheduledTaskPrincipal -UserID $Username -LogonType Password -RunLevel Highest
-
-# Create Trigger Time for Task Schedule
-$TriggerTime = New-ScheduledTaskTrigger -AtLogOn
-
-# Create Action for Task Schedule
-$Execute = "C:\OSDCloud\ServiceUI.exe"
-$Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe ' + $ScriptPathOOBE + ' -NoExit'
-$TSAction = New-ScheduledTaskAction -Execute $Execute -Argument "`"$Arguments`""
-
-# Create Task Schedule
-Register-ScheduledTask -TaskName $TaskName -Trigger $TriggerTime -Action $TSAction -Principal $Principal
-#=============================================== #>
 
 # Import 'OSD' Module
 #Invoke-Expression (Invoke-RestMethod functions.osdcloud.com)
