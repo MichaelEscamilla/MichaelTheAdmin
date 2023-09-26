@@ -25,9 +25,10 @@ Start-Sleep -Seconds 1
 
 # ALT + TAB
 Write-Host -ForegroundColor DarkGray "SendKeys: ALT + TAB"
-`$WscriptShell.SendKeys("^%({TAB}{TAB}{ENTER})")
-
-Start-Sleep -Seconds 1
+`$WscriptShell.SendKeys("^%({TAB}{TAB}{TAB})")
+Start-Sleep -Seconds 5
+`$WscriptShell.SendKeys("{ENTER}")
+Start-Sleep -Seconds 5
 
 # Start Powershell
 `$WscriptShell.SendKeys("powershell{ENTER}")
