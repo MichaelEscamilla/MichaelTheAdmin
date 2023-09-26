@@ -55,7 +55,7 @@ Write-Host -ForegroundColor DarkGray "Installing OSD PS Module"
 Install-Module OSD -Force -Verbose
 
 Write-Host -ForegroundColor DarkGray "Executing OOBEDeploy Script fomr OSDCloud Module"
-Start-OOBEDeploy"
+Start-OOBEDeploy
 
 Write-Host -ForegroundColor Green "Pausing...."
 Start-Sleep -Seconds 900
