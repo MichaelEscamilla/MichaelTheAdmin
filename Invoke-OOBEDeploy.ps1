@@ -122,7 +122,7 @@ $action.Arguments = '-process:cmd.exe C:\WINDOWS\System32\WindowsPowerShell\v1.0
 
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
-$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
+#$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
 
 
 # Import 'OSD' Module
