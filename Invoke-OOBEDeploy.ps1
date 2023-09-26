@@ -17,19 +17,25 @@ Start-Transcript -Path (Join-Path "`$env:ProgramData\Microsoft\IntuneManagementE
 Write-Host -ForegroundColor DarkGray "Stop Debug-Mode (SHIFT + F10) with WscriptShell.SendKeys"
 `$WscriptShell = New-Object -com Wscript.Shell
 
-# ALT + TAB
-Write-Host -ForegroundColor DarkGray "SendKeys: ALT + TAB"
-`$WscriptShell.SendKeys("%({TAB})")
-
-Start-Sleep -Seconds 1
-
 # Shift + F10
 Write-Host -ForegroundColor DarkGray "SendKeys: SHIFT + F10"
 `$WscriptShell.SendKeys("+({F10})")
 
-`$WscriptShell.SendKeys("powershell")
+Start-Sleep -Seconds 1
+
+# ALT + TAB
+Write-Host -ForegroundColor DarkGray "SendKeys: ALT + TAB"
+`$WscriptShell.SendKeys("^%({TAB}{TAB}{ENTER})")
+
+Start-Sleep -Seconds 1
+
+# Start Powershell
+`$WscriptShell.SendKeys("powershell{ENTER}")
+
 Start-Sleep -Seconds 5
-`$WscriptShell.SendKeys("Start-OOBEDeploy")
+
+# Start OOBEDeploy
+`$WscriptShell.SendKeys("Start-OOBEDeploy{ENTER}")
 
 Stop-Transcript -Verbose | Out-File
 "@
