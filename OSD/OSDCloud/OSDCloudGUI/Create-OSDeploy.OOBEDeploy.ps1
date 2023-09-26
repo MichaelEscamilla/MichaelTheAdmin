@@ -13,6 +13,18 @@ $Global:OOBEDeploy = [ordered]@{
     AddNetFX3  = @{
         IsPresent = $true
     }
+    AddRSAT = @{
+        IsPresent = $false
+    }
+    Autopilot = @{
+        IsPresent = $false
+    }
+    UpdateDrivers = @{
+        IsPresent = $false
+    }
+    UpdateWindows = @{
+        IsPresent = $true
+    }
     RemoveAppx = @(
         "MicrosoftTeams",
         "Microsoft.BingWeather",
