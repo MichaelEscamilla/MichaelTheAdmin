@@ -51,6 +51,9 @@ $OOBEScript =@"
 `$Global:Transcript = "`$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OOBEScripts.log"
 Start-Transcript -Path (Join-Path "`$env:ProgramData\Microsoft\IntuneManagementExtension\Logs\OSD\" `$Global:Transcript) -ErrorAction Ignore | Out-Null
 
+Write-Host -ForegroundColor Green "Testinggggggggggggggggggg"
+Start-Process PowerShell -ArgumentList "-NoL -C whoami; Start-Sleep -Seconds 20" -Wait
+
 Write-Host -ForegroundColor DarkGray "Installing OSD PS Module"
 Install-Module OSD -Force -Verbose
 
@@ -118,10 +121,9 @@ $action.Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPower
 
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
-#$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
-#$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "defaultuser0", "", 1)
+$taskFolder.RegisterTaskDefinition($TaskName, $Task , 6, "SYSTEM", $NULL, 5)
 
-#===============================================
+<# #===============================================
 # Set Task Schedule Name
 $TaskName = "OSDCloud OOBE"
 
@@ -139,7 +141,7 @@ $TSAction = New-ScheduledTaskAction -Execute $Execute -Argument "`"$Arguments`""
 
 # Create Task Schedule
 Register-ScheduledTask -TaskName $TaskName -Trigger $TriggerTime -Action $TSAction -Principal $Principal
-#===============================================
+#=============================================== #>
 
 # Import 'OSD' Module
 #Invoke-Expression (Invoke-RestMethod functions.osdcloud.com)
