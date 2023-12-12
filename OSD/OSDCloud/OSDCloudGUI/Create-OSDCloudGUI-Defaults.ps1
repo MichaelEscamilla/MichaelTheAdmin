@@ -17,8 +17,8 @@ $Global:OSDCloud_Defaults = [ordered]@{
     OSEdition            = "Enterprise"
     OSLanguage           = "en-us"
     OSImageIndex         = 6
-    OSName               = "Windows 11 22H2 x64"
-    OSReleaseID          = "22H2"
+    OSName               = "Windows 11 23H2 x64"
+    OSReleaseID          = "23H2"
     OSVersion            = "Windows 11"
     OSActivationValues   = @(
         "Volume",
@@ -36,10 +36,12 @@ $Global:OSDCloud_Defaults = [ordered]@{
         "es-mx"
     )
     OSNameValues         = @(
+        "Windows 11 23H2 x64",
         "Windows 11 22H2 x64",
         "Windows 10 22H2 x64"
     )
     OSReleaseIDValues    = @(
+        "23H2",
         "22H2"
     )
     OSVersionValues      = @(
