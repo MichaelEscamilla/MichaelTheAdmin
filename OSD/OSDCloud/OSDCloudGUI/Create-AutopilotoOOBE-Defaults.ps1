@@ -18,6 +18,7 @@ $Global:AutopilotOOBE = [ordered]@{
         'MTA-MEXLPT',
         'MTA-MEXWRK'
     )
+    AssignedComputerNameExample = 'MTA-USALPT000'
     Hidden = 'AddToGroup'
     Assign = $true
     PostAction = 'Restart'
