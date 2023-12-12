@@ -20,6 +20,8 @@ $Global:AutopilotOOBE = [ordered]@{
     )
     Hidden = 'AddToGroup'
     Assign = $true
+    PostAction = 'Restart'
+    Docs = 'https://michaeltheadmin.com'
 }
 
 # Create 'OSDeploy.OOBEDeploy.json' - During WinPE SystemDrive will be 'X:'
