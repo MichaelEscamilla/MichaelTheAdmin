@@ -1,10 +1,10 @@
 <# https://MichaeltheAdmin.com
 
-Create the file "$($env:SystemDrive)\OSDCloud\Automate\OSDeploy.AutopilotOOBE.json"
+Create the file "$($env:ProgramData)\OSDeploy\OSDeploy.AutopilotOOBE.json"
 and 'OSDCloudGUI' will import the file
 
 Working off the infromation here
-https://akosbakos.ch/osdcloud-4-oobe-customization/
+https://autopilotoobe.osdeploy.com/
 
 #>
 
@@ -14,9 +14,7 @@ $Global:AutopilotOOBE = [ordered]@{
     GroupTag        = 'MTA-USALPT'
     GroupTagOptions = @(
         'MTA-USALPT',
-        'MTA-USAWRK',
-        'MTA-MEXLPT',
-        'MTA-MEXWRK'
+        'MTA-USAWRK'
     )
     AssignedComputerNameExample = ''
     Hidden = 'AddToGroup'
