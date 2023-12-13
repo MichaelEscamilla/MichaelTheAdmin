@@ -1,7 +1,7 @@
 <# https://MichaeltheAdmin.com
 
-Create the file "$($env:ProgramData)\OSDeploy\OSDeploy.AutopilotOOBE.json"
-and 'OSDCloudGUI' will import the file
+Create the file "C:\OSDeploy\OSDeploy.AutopilotOOBE.json"
+and 'Start-AutopilotOOBE' will import the file
 
 Working off the infromation here
 https://autopilotoobe.osdeploy.com/
