@@ -23,8 +23,8 @@ $Global:AutopilotOOBE = [ordered]@{
     Docs = 'https://michaeltheadmin.com'
 }
 
-# Create 'OSDeploy.OOBEDeploy.json' - During WinPE SystemDrive will be 'X:'
-$AutopilotOOBEjson = New-Item -Path "$($env:ProgramData)\OSDeploy\OSDeploy.AutopilotOOBE.json" -Force
+# Create 'OSDeploy.AutopilotOOBE.json' - This needs to be written to the 'C:' drive
+$AutopilotOOBEjson = New-Item -Path "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json" -Force
 
 # Covert data to Json and export to the file created above
 $Global:AutopilotOOBE | ConvertTo-Json -Depth 10 | Out-File -FilePath $($AutopilotOOBEjson.FullName) -Force
