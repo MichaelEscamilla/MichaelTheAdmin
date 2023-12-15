@@ -3,25 +3,20 @@
 Create the file "$($env:SystemDrive)\OSDCloud\Automate\OSDeploy.AutopilotOOBE.json"
 and 'OSDCloudGUI' will import the file
 
-Working off the infromation here
-https://akosbakos.ch/osdcloud-4-oobe-customization/
-
 #>
 
 # Set OSDCloudGUI Defaults
 $Global:AutopilotOOBE = [ordered]@{
-    Assign={
+    Assign = @{
         IsPresent = $true
     }
-    AssignedUserExample = "Username@example.com"
+    AssignedUserExample         = "Username@example.com"
     AssignedComputerNameExample = "COMPUTERNAME"
-    GroupTag = "Tag1"
-    GroupTagOptions=@(
+    GroupTag                    = "Tag1"
+    GroupTagOptions             = @(
         "Tag1",
         "Tag2",
         "Tag3"
-    )
-    Disabled                    = @(
     )
     Hidden                      = @(
         "Docs",

@@ -1,10 +1,10 @@
 <# https://MichaeltheAdmin.com
 
-Create the file "$($env:SystemDrive)\OSDCloud\Automate\OSDeploy.AutopilotOOBE.json"
-and 'OSDCloudGUI' will import the file
+Create the file "C:\OSDeploy\OSDeploy.AutopilotOOBE.json"
+and 'Start-AutopilotOOBE' will import the file
 
 Working off the infromation here
-https://akosbakos.ch/osdcloud-4-oobe-customization/
+https://autopilotoobe.osdeploy.com/
 
 #>
 
@@ -14,19 +14,17 @@ $Global:AutopilotOOBE = [ordered]@{
     GroupTag        = 'MTA-USALPT'
     GroupTagOptions = @(
         'MTA-USALPT',
-        'MTA-USAWRK',
-        'MTA-MEXLPT',
-        'MTA-MEXWRK'
+        'MTA-USAWRK'
     )
-    AssignedComputerNameExample = ''
+    AssignedComputerNameExample = 'ExampleComputerName'
     Hidden = 'AddToGroup'
     Assign = $true
     PostAction = 'Restart'
     Docs = 'https://michaeltheadmin.com'
 }
 
-# Create 'OSDeploy.OOBEDeploy.json' - During WinPE SystemDrive will be 'X:'
-$AutopilotOOBEjson = New-Item -Path "$($env:ProgramData)\OSDeploy\OSDeploy.AutopilotOOBE.json" -Force
+# Create 'OSDeploy.AutopilotOOBE.json' - This needs to be written to the 'C:' drive
+$AutopilotOOBEjson = New-Item -Path "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json" -Force
 
 # Covert data to Json and export to the file created above
 $Global:AutopilotOOBE | ConvertTo-Json -Depth 10 | Out-File -FilePath $($AutopilotOOBEjson.FullName) -Force
