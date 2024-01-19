@@ -1,6 +1,6 @@
 <# https://MichaeltheAdmin.com
 
-Create the file "C:\OSDeploy\OSDeploy.AutopilotOOBE.json"
+Create the file "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json"
 and 'Start-AutopilotOOBE' will import the file
 
 Working off the infromation here
@@ -16,6 +16,7 @@ $Global:AutopilotOOBE = [ordered]@{
         'MTA-USALPT',
         'MTA-USAWRK'
     )
+    AssignedUserExample         = "Username@example.com"
     AssignedComputerNameExample = 'ExampleComputerName'
     Hidden = 'AddToGroup'
     Assign = $true
