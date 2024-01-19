@@ -3,5 +3,5 @@ https://michaeltheadmin.com/2023/09/18/using-osdcloud-with-configmgr/<br />
 Basic Task Sequence using OSDCloudGUI to install Windows
 
 # OSDCloudGUI_DefaultSettings.zip
-https://michaeltheadmin.com/2023/09/20/osdcloudgui-with-configmgr-setting-defaults/  
+https://michaeltheadmin.com/2023/09/20/osdcloudgui-with-configmgr-setting-defaults/<br />
 Basic Task Sequence using OSDCloudGUI but utilizing a json file to Set Defaults
