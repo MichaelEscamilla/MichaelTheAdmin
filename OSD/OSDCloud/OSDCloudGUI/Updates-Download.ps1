@@ -67,15 +67,15 @@ Import-Module OSD -Force
 Show-TSActionProgress -Message "Finding Updates for: [$($OSName) $($OSBuildName)]" -Step 1 -MaxStep 2
 $Updates = Get-WSUSXML -Catalog "$($OSName)" -UpdateBuild "$($OSBuildName)" -UpdateArch x64 | Where-Object { $_.UpdateGroup -eq 'LCU' -or $_.UpdateGroup -eq 'Optional' }
 Start-Sleep -Seconds 5
-Show-TSActionProgress -Message "Updates Found: [ $($Updates.Count) ]" -Step 2 -MaxStep 2
+Show-TSActionProgress -Message "Updates Found: [ $(($Updates | measure).Count) ]" -Step 2 -MaxStep 2
 Start-Sleep -Seconds 5
 
 # Download Updates
 [long]$StepCount = 0
-Show-TSActionProgress -Message "Downloading Updates" -Step $StepCount -MaxStep $($Updates.Count + 1)
+Show-TSActionProgress -Message "Downloading Updates" -Step $StepCount -MaxStep $(($Updates | measure).Count + 1)
 foreach ($Update in $Updates) {
     $StepCount++
-    Show-TSActionProgress -Message "Downloading Update: [$($Update.Title)]" -Step $StepCount -MaxStep ($Updates.Count + 1)
+    Show-TSActionProgress -Message "Downloading Update: [$($Update.Title)]" -Step $StepCount -MaxStep (($Updates | measure).Count + 1)
     Save-WebFile -SourceUrl $Update.FileUri -DestinationDirectory "$($DownloadPath)" -DestinationName $Update.FileName -Verbose
     Start-Sleep -Seconds 5
 }
