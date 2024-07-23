@@ -1,14 +1,11 @@
-# Shortcuts
-Various shortcuts for different things
-
-## Client Logs.lnk
+# Client Logs.lnk
 Opens File Explorer to 'C:\Windows\CCM\Logs'
 
-## Configuration Manager.lnk
+# Configuration Manager.lnk
 Opens the Configuration Manager Properties
 
-## Software Center.lnk
+# Software Center.lnk
 Opens Software Center
 
-## Programs and Features.lnk
+# Programs and Features.lnk
 Opens Programs and Features
