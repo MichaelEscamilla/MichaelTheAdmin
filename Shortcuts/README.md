@@ -1,2 +1,2 @@
 # Shortcuts
-Various Shorts for different things
+Various shortcuts for different things
